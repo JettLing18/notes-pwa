@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -50,5 +51,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Note::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->role == 1;
+    }
+
 
 }
